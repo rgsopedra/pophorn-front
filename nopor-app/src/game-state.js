@@ -2,19 +2,19 @@ import React, { useContext, useReducer } from "react";
 
 export const ACTIONS = Object.freeze({
     RESET: 'reset',
-    COMPLETE_TRIAL: 'complete_state',
-    SKIP_TRIAL: 'skip_trial',
+    COMPLETE_CHALLENGE: 'complete_challenge',
+    SKIP_CHALLENGE: 'skip_challenge',
 })
 
 function initState () {
     return {
         players: ['Alice', 'Bob', 'Carol', 'Dave'],
-        trials: [
+        challenges: [
             {text: 'Texto de la prueba 1'},
             {text: 'Texto de la prueba 2'},
             {text: 'Texto de la prueba 3'},
         ],
-        currentTrial: 0,
+        currentChallenge: 0,
     };
 }
 
@@ -23,11 +23,11 @@ function updateState (state, action) {
     switch (action.type) {
         case ACTIONS.RESET:
             return initState();
-        case ACTIONS.COMPLETE_TRIAL:
-        case ACTIONS.SKIP_TRIAL:
+        case ACTIONS.COMPLETE_CHALLENGE:
+        case ACTIONS.SKIP_CHALLENGE:
             return {
                 ...state,
-                currentTrial: state.currentTrial + 1,
+                currentChallenge: state.currentChallenge + 1,
             };
         default:
             return state;
@@ -38,7 +38,6 @@ const GameStateContext = React.createContext(null);
 
 export function WithGameContext ({children}) {
     const [state, dispatch] = useReducer(updateState, null, initState);
-
 
     return (
         <GameStateContext.Provider value={[state, dispatch]}>

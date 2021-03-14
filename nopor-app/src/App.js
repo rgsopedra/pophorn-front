@@ -3,9 +3,9 @@ import React, { useReducer } from 'react';
 import {WithGameContext, useGameState, ACTIONS} from './game-state'
 
 
-function Trial ({trial, onCompleted, onSkipped}) {
+function Challenge ({challenge, onCompleted, onSkipped}) {
     return <>
-        <div>{trial.text}</div>
+        <div>{challenge.text}</div>
         <button onClick={onCompleted}>Completada</button>
         <button onClick={onSkipped}>Rechazada</button>
     </>
@@ -21,18 +21,18 @@ function Ending ({onReset}) {
 function Game () {
     const [state, dispatch] = useGameState();
 
-    const trial = state.trials[state.currentTrial];
+    const challenge = state.challenges[state.currentChallenge];
 
     return <>
-        {trial
+        {challenge
             ? <>
-                <div>Current Player: {state.players[state.currentTrial % state.players.length]}</div>
-                <Trial
-                    trial={state.trials[state.currentTrial]}
-                    onCompleted={() => dispatch({type: ACTIONS.COMPLETE_TRIAL})}
-                    onSkipped={() => dispatch({type: ACTIONS.SKIP_TRIAL})}
-                ></Trial>
-                <div>{state.currentTrial + 1} / {state.trials.length}</div>
+                <div>Current Player: {state.players[state.currentChallenge % state.players.length]}</div>
+                <Challenge
+                    challenge={challenge}
+                    onCompleted={() => dispatch({type: ACTIONS.COMPLETE_CHALLENGE})}
+                    onSkipped={() => dispatch({type: ACTIONS.SKIP_CHALLENGE})}
+                ></Challenge>
+                <div>{state.currentChallenge + 1} / {state.challenges.length}</div>
             </>
             : <Ending onReset={() => dispatch({type: ACTIONS.RESET})}/>
         }
