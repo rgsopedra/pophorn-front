@@ -16,3 +16,5 @@ https://facebook.github.io/react-native/docs/getting-started
 - /assets/styles global styles of the app
 - /assets/theme global properties for elements
 - /constants/colors colors
+
+test
