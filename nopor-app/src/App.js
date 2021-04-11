@@ -23,7 +23,7 @@ function Game () {
 
     const challenge = state.challenges[state.currentChallenge];
 
-    return <>
+    return <div style={{'display': 'flex', 'align-items': 'center', 'justify-content': 'center', 'flex-direction': 'column'}}>
         {challenge
             ? <>
                 <div className='otherText'>Current Player: {state.players[state.currentChallenge % state.players.length]}</div>
@@ -36,7 +36,7 @@ function Game () {
             </>
             : <Ending onReset={() => dispatch({type: ACTIONS.RESET})}/>
         }
-    </>
+    </div>
 }
 
 
