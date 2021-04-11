@@ -11,13 +11,6 @@ function Challenge ({challenge, onCompleted, onSkipped}) {
     </>
 }
 
-function Ending ({onReset}) {
-    return <>
-        <span className='otherText'>Juego finalizado</span>
-        <button onClick={onReset}>Restart</button>
-    </>
-}
-
 function InitGame ({onStart}) {
     return <>
         <h2 className='otherText'>Start the game, bitch!</h2>
@@ -25,7 +18,7 @@ function InitGame ({onStart}) {
     </>
 }
 
-function httptest(){
+function loadChallenges(){
     // GET request using fetch with error handling
     fetch('/.netlify/functions/challenges')
         .then(async response => {
@@ -54,7 +47,7 @@ function Game () {
     return <div style={{'display': 'flex', 'alignItems': 'center', 'justifyContent': 'center', 'flexDirection': 'column'}}>
         {startGame
             ? <InitGame onStart={() => 
-                {httptest()
+                {loadChallenges()
                 dispatch({type: ACTIONS.START})}
             }/>
             : <>
