@@ -1,3 +1,4 @@
+//HELP: Por qué useReducer =(
 import React, { useContext, useReducer } from "react";
 
 export const ACTIONS = Object.freeze({
@@ -13,6 +14,8 @@ function initState () {
             {text: 'Texto de la prueba 1'},
             {text: 'Texto de la prueba 2'},
             {text: 'Texto de la prueba 3'},
+            {text: 'Texto de la prueba 4'},
+            {text: 'Texto de la prueba 5'},
         ],
         currentChallenge: 0,
     };

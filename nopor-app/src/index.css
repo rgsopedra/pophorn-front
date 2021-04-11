@@ -1,65 +1,106 @@
-/* body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-} */
-
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
-}
-
 body {
-  font: 14px "Century Gothic", Futura, sans-serif;
-  margin: 20px;
-}
-
-ol, ul {
-  padding-left: 30px;
-}
-
-.board-row:after {
-  clear: both;
-  content: "";
-  display: table;
-}
-
-.status {
-  margin-bottom: 10px;
-}
-
-.square {
-  background: #fff;
-  border: 1px solid #999;
-  float: left;
-  font-size: 24px;
-  font-weight: bold;
-  line-height: 34px;
-  height: 34px;
-  margin-right: -1px;
-  margin-top: -1px;
+  --main-color: #5739c2;
+  --color-1: #ffc219;
+  --color-2: #14cc96;
+  background: var(--main-color);
   padding: 0;
+  margin: 0;
+  height: 100vh;
+  color: var(--main-color);
+  font-family: "Lato", sans-serif;
+}
+
+#outer {
+  margin-top: 2rem;
+  padding: 5vh 5vw;
   text-align: center;
-  width: 34px;
 }
 
-.square:focus {
+.otherText {
+  color: var(--color-1);
+}
+
+#main {
+  padding: 4vh 4vw;
+  text-align: center;
+  border: 0.4rem solid rgba(0, 0, 0, 0.25);
+  border-radius: 1rem;
+  display: inline-block;
+  width: 16rem;
+  background-color: var(--color-1);
+  box-shadow: 0rem 0rem 10rem 2rem var(--color-1);
+}
+
+#question {
+  font-size: 1.3rem;
+  padding: 0.5rem;
+  text-shadow: 1px 1px rgba(0, 0, 0, 0.2);
+}
+
+#question-group {
+  padding: 0.5rem;
+}
+
+button {
+  display: block;
+  padding: 0.5rem 1rem;
+  margin: 0.3rem 0;
+  width: 16rem;
+  border-radius: 0.3rem;
+  background-color: var(--main-color);
+  color: var(--color-1);
+  border: 3px solid rgba(0, 0, 0, 0.2);
+  box-shadow: 0.1rem 0.1rem 0.1rem rgba(0, 0, 0, 0.3);
+  background-color: var(--color-2);
+  color: white;
   outline: none;
+  font-size: 1rem;
+  text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
+}
+button:active {
+  box-shadow: none;
+  transform: translateY(3px);
+  outline: none;
+  background-color: var(--main-color);
+  color: var(--color-1);
+  font-weight: bold;
+  transition: 0.1s;
 }
 
-.kbd-navigation .square:focus {
-  background: #ddd;
+button:hover {
+  cursor: pointer;
 }
 
-.game {
-  display: flex;
-  flex-direction: row;
+#question-number {
+  padding: 0.5rem;
+  text-align: left;
 }
 
-.game-info {
-  margin-left: 20px;
+#score-group {
+  padding: 0.5rem;
 }
 
+.scores {
+  display: inline-block;
+  float: left;
+}
+
+.right {
+  float: right;
+}
+
+.noselect {
+  -webkit-touch-callout: none; /* iOS Safari */
+  -webkit-user-select: none; /* Safari */
+  -khtml-user-select: none; /* Konqueror HTML */
+  -moz-user-select: none; /* Firefox */
+  -ms-user-select: none; /* Internet Explorer/Edge */
+  user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome and Opera */
+}
+
+@media only screen and (max-width: 500px) {
+  #main {
+    box-shadow: 0rem 0rem 5rem 1rem var(--color-1);
+  }
+}
