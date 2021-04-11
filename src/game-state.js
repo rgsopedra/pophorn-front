@@ -5,7 +5,9 @@ export const ACTIONS = Object.freeze({
     RESET: 'reset',
     COMPLETE_CHALLENGE: 'complete_challenge',
     SKIP_CHALLENGE: 'skip_challenge',
+    START: 'start',
 })
+
 
 function initState () {
     return {
@@ -18,12 +20,18 @@ function initState () {
             {text: 'Texto de la prueba 5'},
         ],
         currentChallenge: 0,
+        startGame: true,
     };
 }
 
 function updateState (state, action) {
     console.log(state, action)
     switch (action.type) {
+        case ACTIONS.START:
+            return {
+                ...state,
+                startGame: false,
+            };
         case ACTIONS.RESET:
             return initState();
         case ACTIONS.COMPLETE_CHALLENGE:
